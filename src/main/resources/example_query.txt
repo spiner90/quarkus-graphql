@@ -1,0 +1,62 @@
+query allFilms {
+  allFilms {
+    title
+    director
+    releaseDate
+    episodeID
+  }
+}
+
+query getFilms {
+  film0: film(filmId: 0) {
+    title
+    director
+    releaseDate
+    episodeID
+  }
+  film1: film(filmId: 1) {
+    title
+    director
+    releaseDate
+    episodeID
+  }
+}
+
+query getFilmHeroes {
+  film(filmId: 1) {
+    title
+    director
+    releaseDate
+    episodeID
+    heroes {
+      name
+      height
+      mass
+      darkSide
+      lightSaber
+    }
+  }
+}
+
+mutation addHero {
+  createHero(hero: {
+      name: "Han",
+      surname: "Solo"
+      height: 1.85
+      mass: 80
+      darkSide: false
+      episodeIds: [4, 5, 6]
+  	}
+  )
+  {
+    name
+    surname
+  }
+}
+
+mutation DeleteHero {
+  deleteHero(id :3){
+    name
+    surname
+  }
+}
